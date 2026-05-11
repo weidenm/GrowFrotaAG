@@ -1,0 +1,81 @@
+// Mock de peças com dados de vida útil e última troca por veículo
+// desgaste_percentual = (kmAtual - kmUltimaTroca) / vidaUtilKm
+export const mockParts = [
+  {
+    id: 'p1',
+    nome: 'Filtro de óleo',
+    vehicleId: 'v1',
+    vidaUtilKm: 10000,
+    kmUltimaTroca: 172000,
+  },
+  {
+    id: 'p2',
+    nome: 'Pastilha de freio dianteira',
+    vehicleId: 'v1',
+    vidaUtilKm: 30000,
+    kmUltimaTroca: 155000,
+  },
+  {
+    id: 'p3',
+    nome: 'Correia dentada',
+    vehicleId: 'v1',
+    vidaUtilKm: 60000,
+    kmUltimaTroca: 130000,
+  },
+  {
+    id: 'p4',
+    nome: 'Filtro de ar',
+    vehicleId: 'v2',
+    vidaUtilKm: 15000,
+    kmUltimaTroca: 88000,
+  },
+  {
+    id: 'p5',
+    nome: 'Filtro de combustível',
+    vehicleId: 'v2',
+    vidaUtilKm: 20000,
+    kmUltimaTroca: 85000,
+  },
+  {
+    id: 'p6',
+    nome: 'Correia dentada',
+    vehicleId: 'v3',
+    vidaUtilKm: 60000,
+    kmUltimaTroca: 298000,
+  },
+  {
+    id: 'p7',
+    nome: 'Filtro de óleo',
+    vehicleId: 'v3',
+    vidaUtilKm: 10000,
+    kmUltimaTroca: 302000,
+  },
+  {
+    id: 'p8',
+    nome: 'Pastilha de freio traseira',
+    vehicleId: 'v3',
+    vidaUtilKm: 35000,
+    kmUltimaTroca: 278000,
+  },
+  {
+    id: 'p9',
+    nome: 'Filtro de óleo',
+    vehicleId: 'v5',
+    vidaUtilKm: 10000,
+    kmUltimaTroca: 215000,
+  },
+  {
+    id: 'p10',
+    nome: 'Velas de ignição',
+    vehicleId: 'v5',
+    vidaUtilKm: 20000,
+    kmUltimaTroca: 210000,
+  },
+  {
+    id: 'p11',
+    nome: 'Amortecedor dianteiro',
+    vehicleId: 'v5',
+    vidaUtilKm: 50000,
+    kmUltimaTroca: 180000,
+  },
+];
