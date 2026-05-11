@@ -47,7 +47,7 @@ export default function Layout({ children }) {
   );
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#0f1117' }}>
+    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: 'background.default' }}>
       {/* Drawer lateral (desktop) */}
       {isDesktop && (
         <Drawer
@@ -58,8 +58,9 @@ export default function Layout({ children }) {
             '& .MuiDrawer-paper': {
               width: DRAWER_WIDTH,
               boxSizing: 'border-box',
-              bgcolor: '#151929',
-              borderRight: '1px solid rgba(255,255,255,0.06)',
+              bgcolor: 'background.paper',
+              borderRight: '1px solid',
+              borderColor: 'divider',
             },
           }}
         >
@@ -68,7 +69,7 @@ export default function Layout({ children }) {
             <LocalShippingIcon sx={{ color: '#6C8EFF', fontSize: 28 }} />
             <Typography
               variant="h6"
-              sx={{ fontWeight: 700, color: '#fff', letterSpacing: '-0.5px' }}
+              sx={{ fontWeight: 700, color: 'text.primary', letterSpacing: '-0.5px' }}
             >
               GrowFrota
             </Typography>
@@ -86,9 +87,9 @@ export default function Layout({ children }) {
                   sx={{
                     borderRadius: 2,
                     mb: 0.5,
-                    color: active ? '#6C8EFF' : '#94a3b8',
+                    color: active ? '#6C8EFF' : 'text.secondary',
                     bgcolor: active ? 'rgba(108,142,255,0.12)' : 'transparent',
-                    '&:hover': { bgcolor: 'rgba(108,142,255,0.08)', color: '#a5b8ff' },
+                    '&:hover': { bgcolor: 'rgba(108,142,255,0.08)', color: active ? '#a5b8ff' : 'text.primary' },
                     transition: 'all 0.2s',
                   }}
                 >
@@ -132,10 +133,11 @@ export default function Layout({ children }) {
             left: 0,
             right: 0,
             zIndex: 1300,
-            bgcolor: '#151929',
-            borderTop: '1px solid rgba(255,255,255,0.06)',
+            bgcolor: 'background.paper',
+            borderTop: '1px solid',
+            borderColor: 'divider',
             height: 64,
-            '& .MuiBottomNavigationAction-root': { color: '#64748b' },
+            '& .MuiBottomNavigationAction-root': { color: 'text.secondary' },
             '& .Mui-selected': { color: '#6C8EFF' },
           }}
         >

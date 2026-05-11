@@ -86,8 +86,9 @@ export default function AddVehicleDialog({ open, onClose }) {
       fullWidth
       PaperProps={{
         sx: {
-          bgcolor: '#1a1f2e',
-          border: '1px solid rgba(255,255,255,0.08)',
+          bgcolor: 'background.paper',
+          border: '1px solid',
+          borderColor: 'divider',
           borderRadius: 3,
         },
       }}
@@ -97,13 +98,13 @@ export default function AddVehicleDialog({ open, onClose }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          color: '#f1f5f9',
+          color: 'text.primary',
           fontWeight: 700,
           pb: 1,
         }}
       >
         Adicionar Veículo
-        <IconButton onClick={handleClose} size="small" sx={{ color: '#64748b' }}>
+        <IconButton onClick={handleClose} size="small" sx={{ color: 'text.secondary' }}>
           <CloseIcon fontSize="small" />
         </IconButton>
       </DialogTitle>
@@ -186,7 +187,7 @@ export default function AddVehicleDialog({ open, onClose }) {
       </DialogContent>
 
       <DialogActions sx={{ px: 3, pb: 3, gap: 1 }}>
-        <Button onClick={handleClose} sx={{ color: '#64748b' }}>
+        <Button onClick={handleClose} sx={{ color: 'text.secondary' }}>
           Cancelar
         </Button>
         <Button

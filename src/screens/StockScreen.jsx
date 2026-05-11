@@ -44,7 +44,7 @@ function StockCard({ item }) {
     <Paper
       sx={{
         p: 2.5,
-        bgcolor: '#151929',
+        bgcolor: 'background.paper',
         border: '1px solid',
         borderColor: `${st.color}44`,
         borderRadius: 3,
@@ -54,11 +54,11 @@ function StockCard({ item }) {
         <Box sx={{ flex: 1, minWidth: 0, mr: 1 }}>
           <Typography
             variant="body2"
-            sx={{ color: '#f1f5f9', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+            sx={{ color: 'text.primary', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
           >
             {item.nome}
           </Typography>
-          <Typography variant="caption" sx={{ color: '#475569' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             Mínimo: {item.estoqueMinimo} un
           </Typography>
         </Box>
@@ -80,7 +80,7 @@ function StockCard({ item }) {
         <Typography variant="h4" sx={{ fontWeight: 800, color: st.color, lineHeight: 1 }}>
           {item.quantidadeAtual}
         </Typography>
-        <Typography variant="caption" sx={{ color: '#475569' }}>
+        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
           / {item.estoqueMinimo} mín
         </Typography>
       </Box>
@@ -134,7 +134,7 @@ export default function StockScreen() {
         {/* Grid de estoque */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
           <InventoryIcon sx={{ color: '#6C8EFF', fontSize: 20 }} />
-          <Typography variant="subtitle2" sx={{ color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, fontSize: 11 }}>
+          <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, fontSize: 11 }}>
             Inventário
           </Typography>
         </Box>
@@ -147,12 +147,12 @@ export default function StockScreen() {
           ))}
         </Grid>
 
-        <Divider sx={{ borderColor: 'rgba(255,255,255,0.06)', mb: 4 }} />
+        <Divider sx={{ mb: 4 }} />
 
         {/* Compras sugeridas */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
           <ShoppingCartIcon sx={{ color: '#f59e0b', fontSize: 20 }} />
-          <Typography variant="subtitle2" sx={{ color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, fontSize: 11 }}>
+          <Typography variant="subtitle2" sx={{ color: 'text.secondary', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, fontSize: 11 }}>
             Compras Sugeridas ({suggested.length})
           </Typography>
         </Box>
@@ -161,20 +161,21 @@ export default function StockScreen() {
           <Paper
             sx={{
               p: 4,
-              bgcolor: '#151929',
-              border: '1px solid rgba(255,255,255,0.06)',
+              bgcolor: 'background.paper',
+              border: '1px solid',
+              borderColor: 'divider',
               borderRadius: 3,
               textAlign: 'center',
             }}
           >
-            <Typography sx={{ color: '#475569' }}>
+            <Typography sx={{ color: 'text.secondary' }}>
               Nenhuma compra sugerida no momento. Estoque e desgaste dentro dos limites! 🎉
             </Typography>
           </Paper>
         ) : (
           <Paper
             sx={{
-              bgcolor: '#151929',
+              bgcolor: 'background.paper',
               border: '1px solid rgba(255,171,0,0.2)',
               borderRadius: 3,
               overflow: 'hidden',
@@ -187,7 +188,7 @@ export default function StockScreen() {
                 const dotColor = belowMin ? '#ef4444' : '#f59e0b';
                 return (
                   <React.Fragment key={item.id}>
-                    {idx > 0 && <Divider sx={{ borderColor: 'rgba(255,255,255,0.05)' }} />}
+                    {idx > 0 && <Divider sx={{ borderColor: 'divider' }} />}
                     <ListItem sx={{ py: 1.5, px: 2.5 }}>
                       <ListItemIcon sx={{ minWidth: 28 }}>
                         <FiberManualRecordIcon sx={{ fontSize: 10, color: dotColor }} />
@@ -195,7 +196,7 @@ export default function StockScreen() {
                       <ListItemText
                         primary={
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
-                            <Typography variant="body2" sx={{ color: '#f1f5f9', fontWeight: 600 }}>
+                            <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 600 }}>
                               {item.nome}
                             </Typography>
                             {item.reasons.map((r) => (
@@ -215,7 +216,7 @@ export default function StockScreen() {
                           </Box>
                         }
                         secondary={
-                          <Typography variant="caption" sx={{ color: '#475569' }}>
+                          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
                             Estoque atual: {item.quantidadeAtual} · Mínimo: {item.estoqueMinimo}
                           </Typography>
                         }

@@ -42,11 +42,11 @@ function MaintenanceRow({ m }) {
       <TableRow
         sx={{
           cursor: 'pointer',
-          '&:hover': { bgcolor: 'rgba(255,255,255,0.02)' },
+          '&:hover': { bgcolor: 'action.hover' },
         }}
         onClick={() => setOpen(!open)}
       >
-        <TableCell sx={{ color: '#94a3b8', fontSize: 13 }}>{m.data}</TableCell>
+        <TableCell sx={{ color: 'text.secondary', fontSize: 13 }}>{m.data}</TableCell>
         <TableCell>
           <Chip
             label={m.tipo === 'preventiva' ? 'Preventiva' : 'Corretiva'}
@@ -60,11 +60,11 @@ function MaintenanceRow({ m }) {
             }}
           />
         </TableCell>
-        <TableCell sx={{ color: '#cbd5e1', fontSize: 13 }}>{formatKm(m.kmHora)}</TableCell>
-        <TableCell sx={{ color: '#cbd5e1', fontSize: 13 }}>{m.pecas.length} peça{m.pecas.length !== 1 ? 's' : ''}</TableCell>
+        <TableCell sx={{ color: 'text.secondary', fontSize: 13 }}>{formatKm(m.kmHora)}</TableCell>
+        <TableCell sx={{ color: 'text.secondary', fontSize: 13 }}>{m.pecas.length} peça{m.pecas.length !== 1 ? 's' : ''}</TableCell>
         <TableCell sx={{ color: '#6C8EFF', fontWeight: 700, fontSize: 13 }}>{formatBRL(total)}</TableCell>
         <TableCell>
-          <IconButton size="small" sx={{ color: '#475569' }}>
+          <IconButton size="small" sx={{ color: 'text.secondary' }}>
             {open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}
           </IconButton>
         </TableCell>
@@ -72,26 +72,26 @@ function MaintenanceRow({ m }) {
       <TableRow>
         <TableCell colSpan={6} sx={{ p: 0, border: 0 }}>
           <Collapse in={open}>
-            <Box sx={{ px: 3, py: 2, bgcolor: 'rgba(255,255,255,0.02)' }}>
-              <Typography variant="caption" sx={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 }}>
+            <Box sx={{ px: 3, py: 2, bgcolor: 'action.hover' }}>
+              <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 }}>
                 Peças trocadas
               </Typography>
               <Table size="small" sx={{ mt: 1 }}>
                 <TableHead>
                   <TableRow>
-                    <TableCell sx={{ color: '#475569', fontSize: 11, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>Peça</TableCell>
-                    <TableCell sx={{ color: '#475569', fontSize: 11, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>Qtd</TableCell>
-                    <TableCell sx={{ color: '#475569', fontSize: 11, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>Unit.</TableCell>
-                    <TableCell sx={{ color: '#475569', fontSize: 11, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>Total</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', fontSize: 11, borderBottom: '1px solid', borderColor: 'divider' }}>Peça</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', fontSize: 11, borderBottom: '1px solid', borderColor: 'divider' }}>Qtd</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', fontSize: 11, borderBottom: '1px solid', borderColor: 'divider' }}>Unit.</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', fontSize: 11, borderBottom: '1px solid', borderColor: 'divider' }}>Total</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {m.pecas.map((p, i) => (
                     <TableRow key={i}>
-                      <TableCell sx={{ color: '#cbd5e1', fontSize: 12, borderBottom: '1px solid rgba(255,255,255,0.04)' }}>{p.nome}</TableCell>
-                      <TableCell sx={{ color: '#94a3b8', fontSize: 12, borderBottom: '1px solid rgba(255,255,255,0.04)' }}>{p.quantidade}</TableCell>
-                      <TableCell sx={{ color: '#94a3b8', fontSize: 12, borderBottom: '1px solid rgba(255,255,255,0.04)' }}>{formatBRL(p.custoUnitario)}</TableCell>
-                      <TableCell sx={{ color: '#6C8EFF', fontSize: 12, fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.04)' }}>{formatBRL(p.quantidade * p.custoUnitario)}</TableCell>
+                      <TableCell sx={{ color: 'text.secondary', fontSize: 12, borderBottom: '1px solid', borderColor: 'divider' }}>{p.nome}</TableCell>
+                      <TableCell sx={{ color: 'text.secondary', fontSize: 12, borderBottom: '1px solid', borderColor: 'divider' }}>{p.quantidade}</TableCell>
+                      <TableCell sx={{ color: 'text.secondary', fontSize: 12, borderBottom: '1px solid', borderColor: 'divider' }}>{formatBRL(p.custoUnitario)}</TableCell>
+                      <TableCell sx={{ color: '#6C8EFF', fontSize: 12, fontWeight: 600, borderBottom: '1px solid', borderColor: 'divider' }}>{formatBRL(p.quantidade * p.custoUnitario)}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -119,7 +119,7 @@ export default function VehicleDetailScreen() {
     return (
       <Layout>
         <Box sx={{ p: 4, textAlign: 'center' }}>
-          <Typography sx={{ color: '#64748b' }}>Veículo não encontrado.</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Veículo não encontrado.</Typography>
           <Button onClick={() => navigate('/')} sx={{ mt: 2, color: '#6C8EFF' }}>
             Voltar à frota
           </Button>
@@ -141,7 +141,7 @@ export default function VehicleDetailScreen() {
         <Button
           startIcon={<ArrowBackIcon />}
           onClick={() => navigate('/')}
-          sx={{ color: '#64748b', mb: 2, textTransform: 'none' }}
+          sx={{ color: 'text.secondary', mb: 2, textTransform: 'none' }}
         >
           Voltar à frota
         </Button>
@@ -149,7 +149,7 @@ export default function VehicleDetailScreen() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
           <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Typography variant="h5" sx={{ fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.5px' }}>
+              <Typography variant="h5" sx={{ fontWeight: 700, color: 'text.primary', letterSpacing: '-0.5px' }}>
                 {vehicle.placa}
               </Typography>
               <Chip
@@ -163,7 +163,7 @@ export default function VehicleDetailScreen() {
                 }}
               />
             </Box>
-            <Typography variant="body2" sx={{ color: '#64748b', mt: 0.5 }}>
+            <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }}>
               {vehicle.modelo} · {vehicle.ano}
             </Typography>
           </Box>
@@ -182,15 +182,16 @@ export default function VehicleDetailScreen() {
               <Paper
                 sx={{
                   p: 2,
-                  bgcolor: '#151929',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  bgcolor: 'background.paper',
+                  border: '1px solid',
+                  borderColor: 'divider',
                   borderRadius: 2,
                 }}
               >
-                <Typography variant="caption" sx={{ color: '#475569', display: 'block' }}>
+                <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
                   {stat.label}
                 </Typography>
-                <Typography variant="h6" sx={{ color: '#f1f5f9', fontWeight: 700, mt: 0.5 }}>
+                <Typography variant="h6" sx={{ color: 'text.primary', fontWeight: 700, mt: 0.5 }}>
                   {stat.value}
                 </Typography>
               </Paper>
@@ -206,7 +207,7 @@ export default function VehicleDetailScreen() {
           onChange={(_, v) => setTab(v)}
           sx={{
             mb: 3,
-            '& .MuiTab-root': { color: '#475569', fontSize: 13, textTransform: 'none', fontWeight: 600 },
+            '& .MuiTab-root': { color: 'text.secondary', fontSize: 13, textTransform: 'none', fontWeight: 600 },
             '& .Mui-selected': { color: '#6C8EFF' },
             '& .MuiTabs-indicator': { bgcolor: '#6C8EFF' },
           }}
@@ -223,12 +224,13 @@ export default function VehicleDetailScreen() {
                 sx={{
                   textAlign: 'center',
                   py: 6,
-                  border: '1px dashed rgba(255,255,255,0.08)',
+                  border: '1px dashed',
+                  borderColor: 'divider',
                   borderRadius: 3,
                 }}
               >
-                <BuildIcon sx={{ fontSize: 40, color: '#334155', mb: 1 }} />
-                <Typography sx={{ color: '#475569' }}>
+                <BuildIcon sx={{ fontSize: 40, color: 'text.secondary', mb: 1, opacity: 0.5 }} />
+                <Typography sx={{ color: 'text.secondary' }}>
                   Nenhuma manutenção registrada para este veículo.
                 </Typography>
                 <Button
@@ -241,8 +243,9 @@ export default function VehicleDetailScreen() {
             ) : (
               <Paper
                 sx={{
-                  bgcolor: '#151929',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  bgcolor: 'background.paper',
+                  border: '1px solid',
+                  borderColor: 'divider',
                   borderRadius: 3,
                   overflow: 'hidden',
                 }}
@@ -250,17 +253,18 @@ export default function VehicleDetailScreen() {
                 <Box sx={{ overflowX: 'auto' }}>
                   <Table size="small">
                     <TableHead>
-                      <TableRow sx={{ bgcolor: 'rgba(255,255,255,0.03)' }}>
+                      <TableRow sx={{ bgcolor: 'action.hover' }}>
                         {['Data', 'Tipo', 'Km/Hora', 'Peças', 'Total', ''].map((h) => (
                           <TableCell
                             key={h}
                             sx={{
-                              color: '#475569',
+                              color: 'text.secondary',
                               fontSize: 11,
                               fontWeight: 600,
                               textTransform: 'uppercase',
                               letterSpacing: 1,
-                              borderBottom: '1px solid rgba(255,255,255,0.06)',
+                              borderBottom: '1px solid',
+                              borderColor: 'divider',
                             }}
                           >
                             {h}

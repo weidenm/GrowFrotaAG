@@ -38,24 +38,24 @@ function PartWearCard({ part, vehiclePlaca, vehicleKmAtual }) {
     <Paper
       sx={{
         p: 2.5,
-        bgcolor: '#151929',
+        bgcolor: 'background.paper',
         border: '1px solid',
         borderColor:
           severity === 'error'
             ? 'rgba(239,68,68,0.25)'
             : severity === 'warning'
             ? 'rgba(245,158,11,0.25)'
-            : 'rgba(255,255,255,0.06)',
+            : 'divider',
         borderRadius: 3,
       }}
     >
       {/* Topo: nome + placa + chip */}
       <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 1.5 }}>
         <Box>
-          <Typography variant="body2" sx={{ color: '#f1f5f9', fontWeight: 600 }}>
+          <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 600 }}>
             {part.nome}
           </Typography>
-          <Typography variant="caption" sx={{ color: '#475569' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             {vehiclePlaca}
           </Typography>
         </Box>
@@ -88,7 +88,7 @@ function PartWearCard({ part, vehiclePlaca, vehicleKmAtual }) {
           sx={{
             height: 8,
             borderRadius: 4,
-            bgcolor: 'rgba(255,255,255,0.06)',
+            bgcolor: 'divider',
             '& .MuiLinearProgress-bar': {
               bgcolor: barColor,
               borderRadius: 4,
@@ -99,15 +99,15 @@ function PartWearCard({ part, vehiclePlaca, vehicleKmAtual }) {
 
       {/* Info linha */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography variant="caption" sx={{ color: '#475569' }}>
+        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
           Desgaste: <span style={{ color: barColor, fontWeight: 700 }}>{Math.round(pct * 100)}%</span>
         </Typography>
-        <Typography variant="caption" sx={{ color: '#475569' }}>
+        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
           Vida útil: {formatKm(part.vidaUtilKm)}
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 0.5 }}>
-        <Typography variant="caption" sx={{ color: '#475569' }}>
+        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
           Km rodado desde troca: {formatKm(vehicleKmAtual - part.kmUltimaTroca)}
         </Typography>
       </Box>
@@ -178,7 +178,7 @@ export default function AlertsScreen() {
           onChange={(_, v) => setTab(v)}
           sx={{
             mb: 3,
-            '& .MuiTab-root': { color: '#475569', fontSize: 13, textTransform: 'none', fontWeight: 600 },
+            '& .MuiTab-root': { color: 'text.secondary', fontSize: 13, textTransform: 'none', fontWeight: 600 },
             '& .Mui-selected': { color: '#6C8EFF' },
             '& .MuiTabs-indicator': { bgcolor: '#6C8EFF' },
           }}
@@ -215,12 +215,13 @@ export default function AlertsScreen() {
             sx={{
               textAlign: 'center',
               py: 6,
-              border: '1px dashed rgba(255,255,255,0.08)',
+              border: '1px dashed',
+              borderColor: 'divider',
               borderRadius: 3,
             }}
           >
             <CheckCircleOutlineIcon sx={{ fontSize: 40, color: '#22c55e', mb: 1 }} />
-            <Typography sx={{ color: '#475569' }}>
+            <Typography sx={{ color: 'text.secondary' }}>
               Nenhuma peça nesta categoria para o filtro selecionado.
             </Typography>
           </Box>

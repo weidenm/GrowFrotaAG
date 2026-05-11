@@ -1,11 +1,16 @@
 /**
  * components/PageHeader.jsx
- * Cabeçalho padronizado de página com título e subtítulo opcional.
+ * Cabeçalho padronizado de página com título e subtítulo opcional e toggle de tema.
  */
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, IconButton } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useCustomTheme } from '../context/ThemeContext';
 
 export default function PageHeader({ title, subtitle, action }) {
+  const { mode, toggleTheme } = useCustomTheme();
+
   return (
     <Box
       sx={{
@@ -22,17 +27,22 @@ export default function PageHeader({ title, subtitle, action }) {
       <Box>
         <Typography
           variant="h5"
-          sx={{ fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.5px' }}
+          sx={{ fontWeight: 700, color: 'text.primary', letterSpacing: '-0.5px' }}
         >
           {title}
         </Typography>
         {subtitle && (
-          <Typography variant="body2" sx={{ color: '#64748b', mt: 0.5 }}>
+          <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }}>
             {subtitle}
           </Typography>
         )}
       </Box>
-      {action && <Box>{action}</Box>}
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <IconButton onClick={toggleTheme} sx={{ color: 'text.secondary' }}>
+          {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+        {action && <Box>{action}</Box>}
+      </Box>
     </Box>
   );
 }

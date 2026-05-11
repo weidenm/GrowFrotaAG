@@ -55,8 +55,8 @@ export default function VehicleListScreen() {
               gap: 2,
             }}
           >
-            <DirectionsBusIcon sx={{ fontSize: 64, color: '#334155', opacity: 0.5 }} />
-            <Typography variant="body1" sx={{ color: '#475569' }}>
+            <DirectionsBusIcon sx={{ fontSize: 64, color: 'text.secondary', opacity: 0.5 }} />
+            <Typography variant="body1" sx={{ color: 'text.secondary' }}>
               Nenhum veículo cadastrado
             </Typography>
             <Button

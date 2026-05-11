@@ -19,9 +19,9 @@ export default function VehicleCard({ vehicle, onClick }) {
   return (
     <Card
       sx={{
-        bgcolor: '#151929',
+        bgcolor: 'background.paper',
         border: '1px solid',
-        borderColor: isAlerta ? 'rgba(255,171,0,0.3)' : 'rgba(255,255,255,0.06)',
+        borderColor: isAlerta ? 'rgba(255,171,0,0.3)' : 'divider',
         borderRadius: 3,
         transition: 'all 0.2s',
         '&:hover': {
@@ -51,13 +51,13 @@ export default function VehicleCard({ vehicle, onClick }) {
           <Box sx={{ flex: 1, minWidth: 0 }}>
             <Typography
               variant="subtitle1"
-              sx={{ fontWeight: 700, color: '#f1f5f9', letterSpacing: 1 }}
+              sx={{ fontWeight: 700, color: 'text.primary', letterSpacing: 1 }}
             >
               {vehicle.placa}
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+              sx={{ color: 'text.secondary', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
             >
               {vehicle.modelo}
             </Typography>
@@ -79,18 +79,18 @@ export default function VehicleCard({ vehicle, onClick }) {
         {/* Linha inferior: ano + km */}
         <Box sx={{ display: 'flex', gap: 3 }}>
           <Box>
-            <Typography variant="caption" sx={{ color: '#475569' }}>
+            <Typography variant="caption" sx={{ color: 'text.secondary' }}>
               Ano
             </Typography>
-            <Typography variant="body2" sx={{ color: '#cbd5e1', fontWeight: 600 }}>
+            <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 600 }}>
               {vehicle.ano}
             </Typography>
           </Box>
           <Box>
-            <Typography variant="caption" sx={{ color: '#475569' }}>
+            <Typography variant="caption" sx={{ color: 'text.secondary' }}>
               Km atual
             </Typography>
-            <Typography variant="body2" sx={{ color: '#cbd5e1', fontWeight: 600 }}>
+            <Typography variant="body2" sx={{ color: 'text.primary', fontWeight: 600 }}>
               {formatKm(vehicle.kmAtual)}
             </Typography>
           </Box>
